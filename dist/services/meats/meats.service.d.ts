@@ -1,0 +1,8 @@
+import { Model } from 'mongoose';
+import { Meats, MeatsDocument } from 'src/database/schemas/meats.schema';
+export declare class MeatsService {
+    private readonly meatsModel;
+    constructor(meatsModel: Model<MeatsDocument>);
+    getAll(): Promise<Meats[]>;
+    newMeat(meat: Meats): Promise<Meats>;
+}
