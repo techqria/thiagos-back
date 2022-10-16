@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { MeatsModule } from './modules/meats/meats.module';
 import { AuthController } from './controllers/auth/auth.controller';
 import { AuthService } from './services/auth/auth.service';
+import { AuthModule } from './modules/auth/auth.module';
 import configuration from './config/configuration';
 
 @Module({
@@ -15,9 +16,10 @@ import configuration from './config/configuration';
       isGlobal: true,
       load: [configuration]
     }),
-    MeatsModule
+    MeatsModule,
+    AuthModule
 ],
-  controllers: [AppController, AuthController],
-  providers: [AppService, AuthService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

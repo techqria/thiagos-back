@@ -12,30 +12,23 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MeatsService = void 0;
+exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-const meats_schema_1 = require("../../database/schemas/meats.schema");
-let MeatsService = class MeatsService {
-    constructor(meatsModel) {
-        this.meatsModel = meatsModel;
+const user_schema_1 = require("../../database/schemas/user.schema");
+let AuthService = class AuthService {
+    constructor(userModel) {
+        this.userModel = userModel;
     }
-    async getAll() {
-        return this.meatsModel.find();
-    }
-    async newMeat(meat) {
-        const newMeat = new this.meatsModel(meat);
-        return newMeat.save();
-    }
-    async removeMeat(meatId) {
-        return await this.meatsModel.findByIdAndDelete(meatId);
+    async authenticate(user) {
+        return await this.userModel.findOne({ username: user.username, password: user.password });
     }
 };
-MeatsService = __decorate([
+AuthService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)(meats_schema_1.Meats.name)),
+    __param(0, (0, mongoose_1.InjectModel)(user_schema_1.User.name)),
     __metadata("design:paramtypes", [mongoose_2.Model])
-], MeatsService);
-exports.MeatsService = MeatsService;
-//# sourceMappingURL=meats.service.js.map
+], AuthService);
+exports.AuthService = AuthService;
+//# sourceMappingURL=auth.service.js.map

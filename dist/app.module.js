@@ -13,6 +13,7 @@ const mongoose_1 = require("@nestjs/mongoose");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const meats_module_1 = require("./modules/meats/meats.module");
+const auth_module_1 = require("./modules/auth/auth.module");
 const configuration_1 = require("./config/configuration");
 let AppModule = class AppModule {
 };
@@ -24,7 +25,8 @@ AppModule = __decorate([
                 isGlobal: true,
                 load: [configuration_1.default]
             }),
-            meats_module_1.MeatsModule
+            meats_module_1.MeatsModule,
+            auth_module_1.AuthModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

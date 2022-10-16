@@ -4,5 +4,6 @@ export declare class MeatsController {
     private readonly meatsService;
     constructor(meatsService: MeatsService);
     getMeats(): Promise<Meats[]>;
-    newMeat(meat: Meats): Promise<any>;
+    newMeat(meat: Meats): Promise<Meats>;
+    removeMeat(param: any): Promise<Meats>;
 }

@@ -5,4 +5,5 @@ export declare class MeatsService {
     constructor(meatsModel: Model<MeatsDocument>);
     getAll(): Promise<Meats[]>;
     newMeat(meat: Meats): Promise<Meats>;
+    removeMeat(meatId: string): Promise<Meats>;
 }

@@ -12,30 +12,34 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MeatsService = void 0;
+exports.AuthController = void 0;
 const common_1 = require("@nestjs/common");
-const mongoose_1 = require("@nestjs/mongoose");
-const mongoose_2 = require("mongoose");
-const meats_schema_1 = require("../../database/schemas/meats.schema");
-let MeatsService = class MeatsService {
-    constructor(meatsModel) {
-        this.meatsModel = meatsModel;
+const user_schema_1 = require("../../database/schemas/user.schema");
+const auth_service_1 = require("../../services/auth/auth.service");
+let AuthController = class AuthController {
+    constructor(authService) {
+        this.authService = authService;
     }
-    async getAll() {
-        return this.meatsModel.find();
-    }
-    async newMeat(meat) {
-        const newMeat = new this.meatsModel(meat);
-        return newMeat.save();
-    }
-    async removeMeat(meatId) {
-        return await this.meatsModel.findByIdAndDelete(meatId);
+    async authenticate(user) {
+        try {
+            let response = await this.authService.authenticate(user);
+            return response;
+        }
+        catch (e) {
+            return e;
+        }
     }
 };
-MeatsService = __decorate([
-    (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)(meats_schema_1.Meats.name)),
-    __metadata("design:paramtypes", [mongoose_2.Model])
-], MeatsService);
-exports.MeatsService = MeatsService;
-//# sourceMappingURL=meats.service.js.map
+__decorate([
+    (0, common_1.Post)(''),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [user_schema_1.User]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "authenticate", null);
+AuthController = __decorate([
+    (0, common_1.Controller)('auth'),
+    __metadata("design:paramtypes", [auth_service_1.AuthService])
+], AuthController);
+exports.AuthController = AuthController;
+//# sourceMappingURL=auth.controller.js.map
