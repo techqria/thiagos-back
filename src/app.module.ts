@@ -4,6 +4,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MeatsModule } from './modules/meats/meats.module';
+import { AuthController } from './controllers/auth/auth.controller';
+import { AuthService } from './services/auth/auth.service';
 import configuration from './config/configuration';
 
 @Module({
@@ -15,7 +17,7 @@ import configuration from './config/configuration';
     }),
     MeatsModule
 ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, AuthController],
+  providers: [AppService, AuthService],
 })
 export class AppModule {}

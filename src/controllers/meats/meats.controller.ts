@@ -1,5 +1,4 @@
 import { Body, Controller, Get, Param, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
-import { FileInterceptor } from '@nestjs/platform-express';
 import { Meats } from 'src/database/schemas/meats.schema';
 import { MeatsService } from 'src/services/meats/meats.service';
 
