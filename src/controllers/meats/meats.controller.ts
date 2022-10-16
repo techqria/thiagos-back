@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { Meats } from 'src/database/schemas/meats.schema';
 import { MeatsService } from 'src/services/meats/meats.service';
 
@@ -19,10 +20,21 @@ export class MeatsController {
         }
     }
 
-    @Post('newMeat')
-    async newMeat(@Body() meat: Meats) {
+    @Post('new-meat')
+    async newMeat(@Body() meat: Meats): Promise<Meats> {
         try {
             let response = await this.meatsService.newMeat(meat);
+            
+            return response
+        } catch (e) {
+            return e
+        }
+    }
+
+    @Post('remove-meat/:id')
+    async removeMeat(@Param() param): Promise<Meats> {
+        try {
+            let response = await this.meatsService.removeMeat(param.id);
             
             return response
         } catch (e) {

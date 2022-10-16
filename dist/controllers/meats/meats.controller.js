@@ -31,8 +31,7 @@ let MeatsController = class MeatsController {
     }
     async newMeat(meat) {
         try {
-            let response = await this.meatsService.newMeat(meat);
-            return response;
+            console.log(meat);
         }
         catch (e) {
             return e;

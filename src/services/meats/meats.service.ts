@@ -16,4 +16,8 @@ export class MeatsService {
         const newMeat = new this.meatsModel(meat);
         return newMeat.save()
     }
+
+    async removeMeat(meatId: string): Promise<Meats> {
+        return await this.meatsModel.findByIdAndDelete(meatId) 
+    }
 }
