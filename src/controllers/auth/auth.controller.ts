@@ -9,9 +9,10 @@ export class AuthController {
         private readonly authService: AuthService
     ) { }
 
-    @Post('')
+    @Post('signin')
     async authenticate(@Body() user: User): Promise<User> {
         try {
+            console.log(user)
             let response = await this.authService.authenticate(user);
             
             return response

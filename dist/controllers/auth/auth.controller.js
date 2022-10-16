@@ -22,6 +22,7 @@ let AuthController = class AuthController {
     }
     async authenticate(user) {
         try {
+            console.log(user);
             let response = await this.authService.authenticate(user);
             return response;
         }
@@ -31,7 +32,7 @@ let AuthController = class AuthController {
     }
 };
 __decorate([
-    (0, common_1.Post)(''),
+    (0, common_1.Post)('signin'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [user_schema_1.User]),
