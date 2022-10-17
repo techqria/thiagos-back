@@ -6,7 +6,7 @@ import { ImageCarousel, ImageCarouselDocument } from 'src/database/schemas/image
 @Injectable()
 export class CarouselService {
 
-    constructor(@InjectModel(Image.name) private readonly imagesModel: Model<ImageCarouselDocument>) {}
+    constructor(@InjectModel(ImageCarousel.name) private readonly imagesModel: Model<ImageCarouselDocument>) {}
 
     async getAllImages(): Promise<ImageCarousel[]> {
         return this.imagesModel.find()
