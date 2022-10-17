@@ -19,6 +19,9 @@ export class Meats  {
 
   @Prop({ required: true, type: String })
   image: string;
+
+  @Prop({ required: true, type: String })
+  description: string;
 }
 
 export const MeatsSchema = SchemaFactory.createForClass(Meats);
