@@ -22,7 +22,7 @@ export class MeatsController {
         }
     }
 
-    @Get('getAllImages')
+    @Get('images/getAll')
     async getImages(): Promise<ImageCarousel[]> {
         try {
             let response = await this.carouselService.getAllImages();
@@ -54,7 +54,7 @@ export class MeatsController {
         }
     }
 
-    @Post('new-image')
+    @Post('images/new-image')
     async newImage(@Body() image: ImageCarousel): Promise<ImageCarousel> {
         try {
             let response = await this.carouselService.newImage(image);
@@ -76,7 +76,7 @@ export class MeatsController {
         }
     }
 
-    @Post('remove-image/:id')
+    @Post('images/remove-image/:id')
     async removeImage(@Param() param): Promise<ImageCarousel> {
         try {
             let response = await this.carouselService.removeImage(param.id);
