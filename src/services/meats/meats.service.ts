@@ -12,6 +12,10 @@ export class MeatsService {
         return this.meatsModel.find()
     }
 
+    async getById(id: string): Promise<Meats> {
+        return this.meatsModel.findById(id)
+    }
+
     async newMeat(meat: Meats): Promise<Meats> {
         const newMeat = new this.meatsModel(meat);
         return newMeat.save()
@@ -19,5 +23,10 @@ export class MeatsService {
 
     async removeMeat(meatId: string): Promise<Meats> {
         return await this.meatsModel.findByIdAndDelete(meatId) 
+    }
+
+    async updateMeat(id: string, meat: Meats): Promise<Meats> {
+        const newMeat = await this.meatsModel.findByIdAndUpdate(id, meat);
+        return newMeat.save()
     }
 }
