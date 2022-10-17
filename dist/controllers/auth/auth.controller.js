@@ -22,7 +22,6 @@ let AuthController = class AuthController {
     }
     async authenticate(user) {
         try {
-            console.log(user);
             let response = await this.authService.authenticate(user);
             return response;
         }

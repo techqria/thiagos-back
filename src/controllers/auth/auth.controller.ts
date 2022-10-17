@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { User } from 'src/database/schemas/user.schema';
 import { AuthService } from 'src/services/auth/auth.service';
 
@@ -12,9 +12,8 @@ export class AuthController {
     @Post('signin')
     async authenticate(@Body() user: User): Promise<User> {
         try {
-            console.log(user)
             let response = await this.authService.authenticate(user);
-            
+
             return response
         } catch (e) {
             return e
