@@ -7,6 +7,7 @@ import { MeatsModule } from './modules/meats/meats.module';
 import { AuthController } from './controllers/auth/auth.controller';
 import { AuthService } from './services/auth/auth.service';
 import { AuthModule } from './modules/auth/auth.module';
+import { CarouselService } from './services/carousel/carousel.service';
 import configuration from './config/configuration';
 
 @Module({
@@ -20,6 +21,6 @@ import configuration from './config/configuration';
     AuthModule
 ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, CarouselService],
 })
 export class AppModule {}

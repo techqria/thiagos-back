@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { ImageCarousel } from 'src/database/schemas/image-carousel.dto';
 import { Meats, MeatsDocument } from 'src/database/schemas/meats.schema';
 
 @Injectable()
@@ -12,6 +13,8 @@ export class MeatsService {
         return this.meatsModel.find()
     }
 
+
+
     async getById(id: string): Promise<Meats> {
         return this.meatsModel.findById(id)
     }
@@ -20,6 +23,8 @@ export class MeatsService {
         const newMeat = new this.meatsModel(meat);
         return newMeat.save()
     }
+
+
 
     async removeMeat(meatId: string): Promise<Meats> {
         return await this.meatsModel.findByIdAndDelete(meatId) 
