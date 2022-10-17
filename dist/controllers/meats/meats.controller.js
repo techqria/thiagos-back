@@ -29,6 +29,15 @@ let MeatsController = class MeatsController {
             return e;
         }
     }
+    async getMeatById(param) {
+        try {
+            let response = await this.meatsService.getById(param.id);
+            return response;
+        }
+        catch (e) {
+            return e;
+        }
+    }
     async newMeat(meat) {
         try {
             let response = await this.meatsService.newMeat(meat);
@@ -47,6 +56,15 @@ let MeatsController = class MeatsController {
             return e;
         }
     }
+    async updateMeat(param, meat) {
+        try {
+            let response = await this.meatsService.updateMeat(param.id, meat);
+            return response;
+        }
+        catch (e) {
+            return e;
+        }
+    }
 };
 __decorate([
     (0, common_1.Get)('getAll'),
@@ -54,6 +72,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], MeatsController.prototype, "getMeats", null);
+__decorate([
+    (0, common_1.Get)('get-meat/:id'),
+    __param(0, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], MeatsController.prototype, "getMeatById", null);
 __decorate([
     (0, common_1.Post)('new-meat'),
     __param(0, (0, common_1.Body)()),
@@ -68,6 +93,14 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], MeatsController.prototype, "removeMeat", null);
+__decorate([
+    (0, common_1.Put)('update-meat/:id'),
+    __param(0, (0, common_1.Param)()),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
+], MeatsController.prototype, "updateMeat", null);
 MeatsController = __decorate([
     (0, common_1.Controller)('meats'),
     __metadata("design:paramtypes", [meats_service_1.MeatsService])

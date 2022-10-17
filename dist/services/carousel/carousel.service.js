@@ -12,37 +12,30 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MeatsService = void 0;
+exports.CarouselService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-const meats_schema_1 = require("../../database/schemas/meats.schema");
-let MeatsService = class MeatsService {
-    constructor(meatsModel) {
-        this.meatsModel = meatsModel;
+const image_carousel_dto_1 = require("../../database/schemas/image-carousel.dto");
+let CarouselService = class CarouselService {
+    constructor(imagesModel) {
+        this.imagesModel = imagesModel;
     }
-    async getAll() {
-        return this.meatsModel.find();
+    async getAllImages() {
+        return this.imagesModel.find();
     }
-    async getById(id) {
-        return this.meatsModel.findById(id);
+    async newImage(image) {
+        const newImage = new this.imagesModel(image);
+        return newImage.save();
     }
-    async newMeat(meat) {
-        const newMeat = new this.meatsModel(meat);
-        return newMeat.save();
-    }
-    async removeMeat(meatId) {
-        return await this.meatsModel.findByIdAndDelete(meatId);
-    }
-    async updateMeat(id, meat) {
-        const newMeat = await this.meatsModel.findByIdAndUpdate(id, meat);
-        return newMeat.save();
+    async removeImage(imageId) {
+        return await this.imagesModel.findByIdAndDelete(imageId);
     }
 };
-MeatsService = __decorate([
+CarouselService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)(meats_schema_1.Meats.name)),
+    __param(0, (0, mongoose_1.InjectModel)(image_carousel_dto_1.ImageCarousel.name)),
     __metadata("design:paramtypes", [mongoose_2.Model])
-], MeatsService);
-exports.MeatsService = MeatsService;
-//# sourceMappingURL=meats.service.js.map
+], CarouselService);
+exports.CarouselService = CarouselService;
+//# sourceMappingURL=carousel.service.js.map

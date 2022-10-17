@@ -4,11 +4,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MeatsModule } from './modules/meats/meats.module';
-import { AuthController } from './controllers/auth/auth.controller';
-import { AuthService } from './services/auth/auth.service';
 import { AuthModule } from './modules/auth/auth.module';
-import { CarouselService } from './services/carousel/carousel.service';
 import configuration from './config/configuration';
+import { ImageCarouselModule } from './modules/carousel/carousel.module';
 
 @Module({
   imports: [
@@ -18,9 +16,10 @@ import configuration from './config/configuration';
       load: [configuration]
     }),
     MeatsModule,
-    AuthModule
+    AuthModule,
+    ImageCarouselModule,
 ],
   controllers: [AppController],
-  providers: [AppService, CarouselService],
+  providers: [AppService],
 })
 export class AppModule {}

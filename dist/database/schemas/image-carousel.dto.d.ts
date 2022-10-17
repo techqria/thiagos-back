@@ -23,13 +23,8 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import { Document } from 'mongoose';
-export declare type MeatsDocument = Meats & Document;
-export declare class Meats {
-    name: string;
-    price: string;
-    quantity: string;
-    category: string;
+export declare type ImageCarouselDocument = ImageCarousel & Document;
+export declare class ImageCarousel {
     image: string;
-    description: string;
 }
-export declare const MeatsSchema: import("mongoose").Schema<Meats, import("mongoose").Model<Meats, any, any, any, any>, {}, {}, {}, {}, "type", Meats>;
+export declare const ImageCarouselSchema: import("mongoose").Schema<ImageCarousel, import("mongoose").Model<ImageCarousel, any, any, any, any>, {}, {}, {}, {}, "type", ImageCarousel>;

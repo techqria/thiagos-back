@@ -33,6 +33,10 @@ __decorate([
     (0, mongoose_1.Prop)({ required: true, type: String }),
     __metadata("design:type", String)
 ], Meats.prototype, "image", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: true, type: String }),
+    __metadata("design:type", String)
+], Meats.prototype, "description", void 0);
 Meats = __decorate([
     (0, mongoose_1.Schema)({ collection: 'meats' })
 ], Meats);
