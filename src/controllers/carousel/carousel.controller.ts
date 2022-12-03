@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { ImageCarousel } from 'src/database/schemas/image-carousel.dto';
-import { CarouselService } from 'src/services/carousel/carousel.service';
+import { ImageCarousel } from '../../database/schemas/image-carousel.dto';
+import { CarouselService } from '../../services/carousel/carousel.service';
 
 @Controller('carousel')
 export class CarouselController {

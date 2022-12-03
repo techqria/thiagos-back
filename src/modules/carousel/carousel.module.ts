@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { CarouselController } from 'src/controllers/carousel/carousel.controller';
-import { ImageCarousel, ImageCarouselSchema } from 'src/database/schemas/image-carousel.dto';
-import { CarouselService } from 'src/services/carousel/carousel.service';
+import { CarouselController } from '../../controllers/carousel/carousel.controller';
+import { ImageCarousel, ImageCarouselSchema } from '../../database/schemas/image-carousel.dto';
+import { CarouselService } from '../../services/carousel/carousel.service';
 
 
 @Module({

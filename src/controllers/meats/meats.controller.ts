@@ -1,7 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { Meats } from 'src/database/schemas/meats.schema';
-import { CarouselService } from 'src/services/carousel/carousel.service';
-import { MeatsService } from 'src/services/meats/meats.service';
+import { MeatsService } from '../../services/meats/meats.service';
 
 @Controller('meats')
 export class MeatsController {
