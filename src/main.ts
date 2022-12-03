@@ -9,7 +9,7 @@ async function bootstrap() {
     methods: "*",
     credentials: true
   };
-  app.enableCors(options);
+  app.enableCors();
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
